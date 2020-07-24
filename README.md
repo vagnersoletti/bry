@@ -26,6 +26,8 @@ Executar API:
 
 - `php artisan serve` 
 
+- Link da API: `https://loopingdigital.com.br/bry/`
+
 
 Migrations:
 
