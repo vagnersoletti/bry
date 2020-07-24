@@ -1,0 +1,55 @@
+<div class="row align-items-center">
+  <div class="col">
+    <h4>Editar Funcionário</h4>
+  </div>
+  <div class="col">
+    <nav class="navbar navbar-light justify-content-end">
+      <ul class="nav">
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary btn-sm">
+            <a class="nav-link text-white" routerLink="/employees/">Voltar para lista Funcionários</a>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="company_id">Empresa</label>
+      <select class="form-control" id="company_id" required [(ngModel)]="employee.company.id" name="company_id">
+        <option disabled selected>{{employee.company.name}}</option>
+        <option *ngFor="let company of companies | async" [value]="company.id">{{company.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="employee.user.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input type="text" class="form-control" id="login" required [(ngModel)]="employee.user.login" name="login">
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="employee.user.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" id="cpf" mask="000.000.000-00" required [(ngModel)]="employee.cpf" name="cpf">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Endereço</label>
+      <input type="text" class="form-control" id="address" required [(ngModel)]="employee.address" name="address">
+    </div>
+
+    <button type="submit" class="btn btn-success">Enviar</button>
+  </form>
+</div>
+

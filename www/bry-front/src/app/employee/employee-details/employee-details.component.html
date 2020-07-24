@@ -1,0 +1,29 @@
+<h2>Detalhes do funcionário</h2>
+
+<hr/>
+
+<div *ngIf="employee">
+  <div>
+    <label><b>Empresa: </b></label> {{employee.company.name}}
+  </div>
+  <div>
+    <label><b>Nome: </b></label> {{employee.user.name}}
+  </div>
+  <div>
+    <label><b>Login: </b></label> {{employee.user.login}}
+  </div>
+  <div>
+    <label><b>CPF: </b></label> {{employee.cpf | mask: '000.000.000-00'}}
+  </div>
+  <div>
+    <label><b>E-mail: </b></label> {{employee.user.email}}
+  </div>
+  <div>
+    <label><b>Endereço: </b></label> {{employee.address}}
+  </div>
+</div>
+
+<br>
+<br>
+
+<button (click)="list()" class="btn btn-primary">Voltar para lista de funcionários</button><br>

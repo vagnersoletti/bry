@@ -1,0 +1,42 @@
+<div class="panel panel-primary">
+  <div class="panel-heading pb-3">
+    <div class="row align-items-center">
+      <div class="col">
+        <h4>Lista de funcionários</h4>
+      </div>
+      <div class="col">
+        <nav class="navbar navbar-light justify-content-end">
+          <ul class="nav">
+            <li class="nav-item">
+              <button type="button" class="btn btn-success btn-sm">
+                <a class="nav-link text-white" routerLink="/employees/create">Adicionar novo funcionário</a>
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>CPF</th>
+          <th>Endereço</th>
+          <th class="text-center">Ações</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let employee of employees | async">
+          <td>{{employee.cpf}}</td>
+          <td>{{employee.address}}</td>
+          <td width="300">
+            <button (click)="deleteEmployee(employee.id)" class="btn btn-danger">Excluir</button>
+            <a [routerLink]="['/employees/update/',employee.id]" class="btn btn-secondary ml-2">Editar</a>
+            <a [routerLink]="['/employees/details/',employee.id]" class="btn btn-info ml-2">Detalhes</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

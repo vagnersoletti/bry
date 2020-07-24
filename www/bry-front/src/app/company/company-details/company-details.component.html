@@ -1,0 +1,40 @@
+<h2>Detalhes da empresa</h2>
+
+<hr/>
+
+<div *ngIf="company">
+  <div>
+    <label><b>Empresa: </b></label> {{company.name}}
+  </div>
+  <div>
+    <label><b>Nome: </b></label> {{company.name}}
+  </div>
+  <div>
+    <label><b>CNPJ: </b></label> {{company.cnpj | mask: '00.000.000/0000-00'}}
+  </div>
+</div>
+
+<br>
+<br>
+<h2>Lista de funcionários</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>Nome</th>
+      <th>CPF</th>
+      <th>Endereço</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let employee of employees">
+      <td>{{employee.id}}</td>
+      <td>{{employee.user.name}}</td>
+      <td>{{employee.cpf | mask: '000.000.000-00'}}</td>
+      <td>{{employee.address}}</td>
+    </tr>
+  </tbody>
+</table>
+<hr/>
+
+<button (click)="list()" class="btn btn-primary">Voltar para lista de empresas</button><br>

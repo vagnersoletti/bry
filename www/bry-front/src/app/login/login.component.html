@@ -1,0 +1,14 @@
+<div class="auth-wrapper">
+  <form class="form-signin" [formGroup]="loginForm" (ngSubmit)= "loginUser()">
+      <h3 class="h3 mb-3 font-weight-normal text-center">BRy | Login</h3>
+      <div class="form-group">
+          <label>E-mail</label>
+          <input type="email" class="form-control" formControlName="email" placeholder="Seu e-mail" required>
+      </div>
+      <div class="form-group">
+          <label>Senha</label>
+          <input type="password" class="form-control" formControlName="password" placeholder="Sua senha">
+      </div>
+      <button type="submit" class="btn btn-block btn-primary">Acessar</button>
+  </form>
+</div>

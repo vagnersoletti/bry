@@ -1,0 +1,67 @@
+<div class="row align-items-center">
+  <div class="col">
+    <h4>Criar Funcionário</h4>
+  </div>
+  <div class="col">
+    <nav class="navbar navbar-light justify-content-end">
+      <ul class="nav">
+        <li class="nav-item">
+          <button type="button" class="btn btn-primary btn-sm">
+            <a class="nav-link text-white" routerLink="/employees/">Voltar para lista Funcionários</a>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</div>
+<div>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="company_id">Empresa</label>
+      <select class="form-control" id="company_id" required [(ngModel)]="employee.company_id" name="company_id">
+        <option *ngFor="let company of companies | async" [value]="company.id">{{company.name}}</option>
+      </select>
+    </div>
+
+    <div class="form-group">
+      <label for="name">Nome</label>
+      <input type="text" class="form-control" id="name" required [(ngModel)]="employee.name" name="name">
+    </div>
+
+    <div class="form-group">
+      <label for="login">Login</label>
+      <input type="text" class="form-control" id="login" required [(ngModel)]="employee.login" name="login">
+    </div>
+
+    <div class="form-group">
+      <label for="email">E-mail</label>
+      <input type="text" class="form-control" id="email" required [(ngModel)]="employee.email" name="email">
+    </div>
+
+    <div class="form-group">
+      <label for="cpf">CPF</label>
+      <input type="text" class="form-control" id="cpf" mask="000.000.000-00" required [(ngModel)]="employee.cpf" name="cpf">
+    </div>
+
+    <div class="form-group">
+      <label for="address">Endereço</label>
+      <input type="text" class="form-control" id="address" required [(ngModel)]="employee.address" name="address">
+    </div>
+
+    <div class="form-group">
+      <label for="password">Senha</label>
+      <input type="password" class="form-control" id="password" required [(ngModel)]="employee.password" name="password">
+    </div>
+
+    <div class="form-group">
+      <label for="password_confirmation">Repetir senha</label>
+      <input type="password" class="form-control" id="password_confirmation" required [(ngModel)]="employee.password_confirmation" name="password_confirmation">
+    </div>
+
+    <button type="submit" class="btn btn-success">Enviar</button>
+  </form>
+</div>
+
+<!-- <div [hidden]="!submitted">
+  <h4>Funcionário cadastrado com sucesso!</h4>
+</div> -->
